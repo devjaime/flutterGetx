@@ -1,5 +1,6 @@
 import 'package:flutter_getx/api/users_api.dart';
 import 'package:flutter_getx/models/user_model.dart';
+import 'package:flutter_getx/pages/profile_page.dart';
 import 'package:get/get.dart';
 
 class HomeAPIController extends GetxController {
@@ -23,5 +24,14 @@ class HomeAPIController extends GetxController {
     _users = data;
 
     update(["users"]);
+  }
+
+  showProfile({required UserModel user}) {
+    Get.to(
+      () => ProfilePage(),
+      arguments: user,
+    );
+
+    //arguments: {"userId": 1},
   }
 }

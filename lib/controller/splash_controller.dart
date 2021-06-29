@@ -15,7 +15,7 @@ class SplashController extends GetxController {
   void onReady() {
     print('Inicia spash onReady');
     super.onReady();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(microseconds: 200), () {
       /* Get.dialog(AlertDialog(
         title: Text("Estoy pintandome"),
       ));*/

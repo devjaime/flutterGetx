@@ -18,8 +18,12 @@ class HomeAPIPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 final user = _.users[index];
                 return ListTile(
+                  onTap: () {
+                    _.showProfile(user: user);
+                  },
                   title: Text(user.firstName),
                   subtitle: Text(user.email),
+                  trailing: Icon(Icons.arrow_forward_ios),
                 );
               }),
         );
