@@ -5,6 +5,10 @@ class ReactiveController extends GetxController {
   //Getx
   RxInt counter = 0.obs;
   RxString currentDate = "".obs;
+
+  //Listas
+  RxList<String> items = <String>[].obs;
+
   @override
   void onInit() {
     // TODO: implement onInit
@@ -27,5 +31,13 @@ class ReactiveController extends GetxController {
 
   void getDate() {
     this.currentDate.value = DateTime.now().toString();
+  }
+
+  void addItem() {
+    this.items.add(DateTime.now().toString());
+  }
+
+  void deleteItem(int index) {
+    this.items.removeAt(index);
   }
 }

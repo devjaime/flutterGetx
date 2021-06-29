@@ -15,7 +15,7 @@ class ReactivePage extends StatelessWidget {
           appBar: AppBar(
             title: Text("Reactivos y Observables"),
           ),
-          body: Container(
+/*           body: Container(
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -41,6 +41,22 @@ class ReactivePage extends StatelessWidget {
                     ))
               ],
             ),
+          ), */
+          body: Obx(
+            () => ListView.builder(
+              itemCount: _.items.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(_.items[index]),
+                  trailing: IconButton(
+                    onPressed: () {
+                      _.deleteItem(index);
+                    },
+                    icon: Icon(Icons.delete),
+                  ),
+                );
+              },
+            ),
           ),
           floatingActionButton: Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -65,7 +81,7 @@ class ReactivePage extends StatelessWidget {
                 width: 10.0,
               ),
               FloatingActionButton(
-                onPressed: _.getDate,
+                onPressed: _.addItem,
                 tooltip: 'Date',
                 child: Icon(Icons.calendar_today),
               ),
