@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/pages/home_global_page.dart';
+import 'package:flutter_getx/pages/reactive_page.dart';
 //import 'package:flutter_getx/pages/home_page.dart';
 //import 'package:flutter_getx/pages/splash_page.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeGlobalPage(),
+      home: ReactivePage(),
     );
   }
 }

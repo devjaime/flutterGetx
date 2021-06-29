@@ -11,30 +11,31 @@ class HomePage extends StatelessWidget {
         builder: (_) {
           print("dibujando Widget");
           return Scaffold(
-              appBar: AppBar(
-                title: Text("Intro a Getx"),
-              ),
-              body: Center(child: Text("${_.counter}")),
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.endDocked,
-              floatingActionButton: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  FloatingActionButton(
-                    onPressed: _.drecrement,
-                    tooltip: 'restar',
-                    child: Icon(Icons.minimize_outlined),
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  FloatingActionButton(
-                    onPressed: _.increment,
-                    tooltip: 'sumar',
-                    child: Icon(Icons.add),
-                  ),
-                ],
-              ));
+            appBar: AppBar(
+              title: Text("Intro a Getx"),
+            ),
+            body: Center(child: Text("${_.counter}")),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.endDocked,
+            floatingActionButton: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                FloatingActionButton(
+                  onPressed: _.drecrement,
+                  tooltip: 'restar',
+                  child: Icon(Icons.minimize_outlined),
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                FloatingActionButton(
+                  onPressed: _.increment,
+                  tooltip: 'sumar',
+                  child: Icon(Icons.add),
+                ),
+              ],
+            ),
+          );
         });
   }
 }

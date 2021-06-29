@@ -7,7 +7,9 @@ import 'package:get/get.dart';
 class GlobalController extends GetxController {
   List<ProductModel> _products = [];
   List<ProductModel> get products => _products;
-//
+
+  RxInt _recuperar = 0.obs;
+  //Map
   Map<String, ProductModel> _favorites = Map();
   Map<String, ProductModel> get favorites => _favorites;
 
@@ -55,5 +57,9 @@ class GlobalController extends GetxController {
       this._favorites.remove(product.name);
     }
     update(["product", "favorite"]);
+  }
+
+  recibirValor(int valor) {
+    _recuperar.value = valor;
   }
 }
