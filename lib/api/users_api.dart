@@ -13,6 +13,8 @@ class UsersAPI {
       "page": page,
     });
     print(response.data);
-    return (response.data["data"]);
+    return (response.data["data"] as List)
+        .map((item) => UserModel.fromJson(item))
+        .toList();
   }
 }

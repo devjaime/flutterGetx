@@ -20,13 +20,16 @@ class UserModel {
 
   String toRawJson() => json.encode(toJson());
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        id: json["id"],
-        email: json["email"],
-        firstName: json["first_name"],
-        lastName: json["last_name"],
-        avatar: json["avatar"],
-      );
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    print(json);
+    return UserModel(
+      id: json["id"],
+      email: json["email"],
+      firstName: json["first_name"],
+      lastName: json["last_name"],
+      avatar: json["avatar"],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "id": id,
