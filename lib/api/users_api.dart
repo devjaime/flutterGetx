@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_getx/models/user_model.dart';
+import 'package:get/get.dart';
 
 class UsersAPI {
   UsersAPI._internal();

@@ -1,50 +1,45 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_getx/api/users_api.dart';
 import 'package:flutter_getx/models/user_model.dart';
+import 'package:flutter_getx/pages/profile_page.dart';
 import 'package:get/get.dart';
 
-class ProfileController extends GetxController {
-  String text = "";
-  late UserModel _user;
-  UserModel get user => _user;
-
-  String _inpuText = "";
-
+class ProfileRxController extends GetxController {
+  RxList<UserModel> _users = RxList<UserModel>();
+  RxList<UserModel> get users => _users;
   @override
   void onInit() {
     super.onInit();
-    print(Get.arguments);
-    this._user = Get.arguments as UserModel;
+
+    print("iniciar oninit HomeAPIController");
   }
 
   @override
-  void onReady() {
+  onReady() {
     super.onReady();
+    _loadUsers();
   }
 
-  void onInputTextChanged(String text) {
-    this._inpuText = text;
-    print(_inpuText);
+  Future<void> _loadUsers() async {
+    RxList<UserModel> data =
+        await UsersAPI.intance.getUsers(1) as RxList<UserModel>;
+    _users = data;
+
+    update(["users"]);
   }
 
-// Get.back = Retroceder
-// Get.to = Ir a una pagina
-  void backHomeWithData() {
-    if (_inpuText.trim().length > 0) {
-      Get.back(result: this._inpuText);
-    } else {
-      Get.dialog(
-        AlertDialog(
-          title: Text("Error"),
-          content: Text("Ingrese un valor"),
-          actions: [
-            TextButton(
-                onPressed: () {
-                  Get.back();
-                },
-                child: Text("ACEPTAR"))
-          ],
-        ),
-      );
+  showProfile({required UserModel user}) async {
+    /*  Get.to(
+      () => ProfilePage(),
+      arguments: user,
+    ); */
+    final result = await Get.to(
+      () => ProfilePage(),
+      arguments: user,
+    );
+
+    if (result != null) {
+      print(result);
     }
+    //arguments: {"userId": 1},
   }
 }
