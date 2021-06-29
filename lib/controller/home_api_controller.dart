@@ -26,12 +26,19 @@ class HomeAPIController extends GetxController {
     update(["users"]);
   }
 
-  showProfile({required UserModel user}) {
-    Get.to(
+  showProfile({required UserModel user}) async {
+    /*  Get.to(
+      () => ProfilePage(),
+      arguments: user,
+    ); */
+    final result = await Get.to(
       () => ProfilePage(),
       arguments: user,
     );
 
+    if (result != null) {
+      print(result);
+    }
     //arguments: {"userId": 1},
   }
 }
